@@ -1,0 +1,53 @@
+{
+  "homepage": {
+    "header": {
+      "title": "Welcome to Our Investment Platform",
+      "subtitle": "Secure your future with our investment packages"
+    },
+    "investmentPackages": [
+      {
+        "id": "diamond",
+        "name": "Diamond",
+        "price": "$1000",
+        "description": "The premium investment package with the highest returns.",
+        "image": "images/diamond.png",
+        "buttonText": "Invest Now",
+        "action": "/invest/diamond"
+      },
+      {
+        "id": "gold",
+        "name": "Gold",
+        "price": "$500",
+        "description": "A robust investment package with excellent returns.",
+        "image": "images/gold.png",
+        "buttonText": "Invest Now",
+        "action": "/invest/gold"
+      },
+      {
+        "id": "silver",
+        "name": "Silver",
+        "price": "$250",
+        "description": "A cost-effective investment package for growing your wealth.",
+        "image": "images/silver.png",
+        "buttonText": "Invest Now",
+        "action": "/invest/silver"
+      },
+      {
+        "id": "platinum",
+        "name": "Platinum",
+        "price": "$750",
+        "description": "A premium package offering significant returns.",
+        "image": "images/platinum.png",
+        "buttonText": "Invest Now",
+        "action": "/invest/platinum"
+      }
+    ],
+    "footer": {
+      "text": "© 2024 Investment Website. All rights reserved.",
+      "links": [
+        { "label": "Privacy Policy", "url": "/privacy" },
+        { "label": "Terms of Service", "url": "/terms" }
+      ]
+    }
+  }
+}

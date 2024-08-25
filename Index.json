@@ -1,0 +1,91 @@
+{
+  "indexPage": {
+    "title": "Welcome to Investment Platform",
+    "subtitle": "Your gateway to secure and profitable investments",
+    "navigation": [
+      {
+        "id": "home",
+        "label": "Home",
+        "url": "/"
+      },
+      {
+        "id": "about",
+        "label": "About Us",
+        "url": "/about"
+      },
+      {
+        "id": "services",
+        "label": "Our Services",
+        "url": "/services"
+      },
+      {
+        "id": "contact",
+        "label": "Contact Us",
+        "url": "/contact"
+      },
+      {
+        "id": "login",
+        "label": "Login",
+        "url": "/login"
+      },
+      {
+        "id": "signup",
+        "label": "Sign Up",
+        "url": "/signup"
+      }
+    ],
+    "mainContent": {
+      "sections": [
+        {
+          "id": "hero",
+          "type": "hero",
+          "title": "Achieve Your Financial Goals",
+          "description": "Join us to explore high-return investment packages tailored for your needs.",
+          "image": "images/hero-banner.jpg",
+          "ctaText": "Learn More",
+          "ctaAction": "/services"
+        },
+        {
+          "id": "features",
+          "type": "features",
+          "title": "Why Choose Us?",
+          "items": [
+            {
+              "id": "security",
+              "icon": "lock",
+              "title": "Secure Investments",
+              "description": "Our platform ensures your investments are safe with top-notch security measures."
+            },
+            {
+              "id": "support",
+              "icon": "support",
+              "title": "24/7 Support",
+              "description": "Our dedicated support team is here to assist you anytime."
+            },
+            {
+              "id": "returns",
+              "icon": "money",
+              "title": "High Returns",
+              "description": "Benefit from competitive returns on a variety of investment packages."
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "cta",
+          "title": "Ready to Start Investing?",
+          "description": "Sign up today to take advantage of our investment opportunities.",
+          "ctaText": "Get Started",
+          "ctaAction": "/signup"
+        }
+      ]
+    },
+    "footer": {
+      "text": "© 2024 Investment Platform. All rights reserved.",
+      "links": [
+        { "label": "Privacy Policy", "url": "/privacy" },
+        { "label": "Terms of Service", "url": "/terms" }
+      ]
+    }
+  }
+}

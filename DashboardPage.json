@@ -1,0 +1,97 @@
+{
+  "dashboard": {
+    "title": "Admin Dashboard",
+    "widgets": [
+      {
+        "id": "totalUsers",
+        "type": "card",
+        "title": "Total Users",
+        "value": "0",
+        "icon": "users",
+        "color": "blue"
+      },
+      {
+        "id": "totalInvestments",
+        "type": "card",
+        "title": "Total Investments",
+        "value": "$0",
+        "icon": "money",
+        "color": "green"
+      },
+      {
+        "id": "recentTransactions",
+        "type": "table",
+        "title": "Recent Transactions",
+        "columns": [
+          { "title": "Transaction ID", "key": "transactionId" },
+          { "title": "User ID", "key": "userId" },
+          { "title": "Amount", "key": "amount" },
+          { "title": "Date", "key": "date" }
+        ],
+        "data": []
+      },
+      {
+        "id": "investmentPackages",
+        "type": "table",
+        "title": "Investment Packages",
+        "columns": [
+          { "title": "Package ID", "key": "packageId" },
+          { "title": "Name", "key": "name" },
+          { "title": "Price", "key": "price" },
+          { "title": "Actions", "key": "actions" }
+        ],
+        "data": []
+      }
+    ],
+    "actions": [
+      {
+        "id": "addPackage",
+        "type": "button",
+        "label": "Add New Package",
+        "action": "/admin/packages/new"
+      },
+      {
+        "id": "viewUsers",
+        "type": "button",
+        "label": "View All Users",
+        "action": "/admin/users"
+      },
+      {
+        "id": "viewReports",
+        "type": "button",
+        "label": "View Reports",
+        "action": "/admin/reports"
+      }
+    ],
+    "charts": [
+      {
+        "id": "investmentTrends",
+        "type": "line",
+        "title": "Investment Trends",
+        "data": {
+          "labels": [],
+          "datasets": [
+            {
+              "label": "Investments",
+              "data": []
+            }
+          ]
+        }
+      },
+      {
+        "id": "userGrowth",
+        "type": "bar",
+        "title": "User Growth",
+        "data": {
+          "labels": [],
+          "datasets": [
+            {
+              "label": "New Users",
+              "data": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

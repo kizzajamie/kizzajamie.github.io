@@ -1,0 +1,60 @@
+{
+  "investmentCards": [
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "price": "$1000",
+      "description": "The premium investment package with the highest returns. Invest now to maximize your profits!",
+      "image": "images/diamond.png",
+      "buttonText": "Invest Now",
+      "action": "/invest/diamond",
+      "benefits": [
+        "Highest returns",
+        "Exclusive features",
+        "24/7 support"
+      ]
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "price": "$500",
+      "description": "A robust investment package with excellent returns and features.",
+      "image": "images/gold.png",
+      "buttonText": "Invest Now",
+      "action": "/invest/gold",
+      "benefits": [
+        "Great returns",
+        "Enhanced features",
+        "Priority support"
+      ]
+    },
+    {
+      "id": "silver",
+      "name": "Silver",
+      "price": "$250",
+      "description": "A cost-effective investment package designed for steady growth.",
+      "image": "images/silver.png",
+      "buttonText": "Invest Now",
+      "action": "/invest/silver",
+      "benefits": [
+        "Affordable",
+        "Solid returns",
+        "Standard support"
+      ]
+    },
+    {
+      "id": "platinum",
+      "name": "Platinum",
+      "price": "$750",
+      "description": "A premium investment package offering significant returns and benefits.",
+      "image": "images/platinum.png",
+      "buttonText": "Invest Now",
+      "action": "/invest/platinum",
+      "benefits": [
+        "High returns",
+        "Exclusive perks",
+        "Dedicated support"
+      ]
+    }
+  ]
+}

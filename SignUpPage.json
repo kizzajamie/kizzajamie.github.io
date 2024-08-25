@@ -1,0 +1,57 @@
+{
+  "signupPage": {
+    "title": "Sign Up",
+    "subtitle": "Create a new account",
+    "fields": [
+      {
+        "id": "phoneNumber",
+        "label": "Phone Number",
+        "type": "text",
+        "placeholder": "Enter your phone number",
+        "validation": {
+          "required": true,
+          "pattern": "^[+]?[0-9]{10,15}$",
+          "message": "Please enter a valid phone number"
+        }
+      },
+      {
+        "id": "password",
+        "label": "Password",
+        "type": "password",
+        "placeholder": "Enter your password",
+        "validation": {
+          "required": true,
+          "minLength": 6,
+          "message": "Password must be at least 6 characters long"
+        }
+      },
+      {
+        "id": "confirmPassword",
+        "label": "Confirm Password",
+        "type": "password",
+        "placeholder": "Re-enter your password",
+        "validation": {
+          "required": true,
+          "minLength": 6,
+          "message": "Password confirmation must match the password"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "id": "signupButton",
+        "text": "Sign Up",
+        "action": "/api/auth/signup",
+        "type": "submit"
+      },
+      {
+        "id": "loginLink",
+        "text": "Already have an account? Login",
+        "action": "/login"
+      }
+    ],
+    "footer": {
+      "text": "© 2024 Investment Website. All rights reserved."
+    }
+  }
+}

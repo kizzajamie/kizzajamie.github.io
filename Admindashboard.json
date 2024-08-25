@@ -1,0 +1,61 @@
+{
+  "dashboard": {
+    "title": "Admin Dashboard",
+    "widgets": [
+      {
+        "id": "totalUsers",
+        "type": "card",
+        "title": "Total Users",
+        "value": "500",
+        "icon": "users",
+        "color": "blue"
+      },
+      {
+        "id": "totalInvestments",
+        "type": "card",
+        "title": "Total Investments",
+        "value": "$250,000",
+        "icon": "money",
+        "color": "green"
+      },
+      {
+        "id": "recentTransactions",
+        "type": "table",
+        "title": "Recent Transactions",
+        "columns": [
+          { "title": "Transaction ID", "key": "transactionId" },
+          { "title": "User ID", "key": "userId" },
+          { "title": "Amount", "key": "amount" },
+          { "title": "Date", "key": "date" }
+        ],
+        "data": []
+      },
+      {
+        "id": "investmentPackages",
+        "type": "table",
+        "title": "Investment Packages",
+        "columns": [
+          { "title": "Package ID", "key": "packageId" },
+          { "title": "Name", "key": "name" },
+          { "title": "Price", "key": "price" },
+          { "title": "Actions", "key": "actions" }
+        ],
+        "data": []
+      }
+    ],
+    "actions": [
+      {
+        "id": "addPackage",
+        "type": "button",
+        "label": "Add New Package",
+        "action": "/admin/packages/new"
+      },
+      {
+        "id": "viewUsers",
+        "type": "button",
+        "label": "View All Users",
+        "action": "/admin/users"
+      }
+    ]
+  }
+}
