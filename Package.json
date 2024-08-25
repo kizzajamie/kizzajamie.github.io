@@ -1,0 +1,29 @@
+{
+  "name": "investment-website",
+  "version": "1.0.0",
+  "description": "A professional investment website with user registration, investment packages, and payment processing.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "cron": "^2.1.0",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^7.0.0",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "author": "Your Name",
+  "license": "ISC"
+}
