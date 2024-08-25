@@ -1,0 +1,20 @@
+const axios = require('axios');
+
+// Example function to send SMS using a third-party API
+const sendSMS = async (phoneNumber, code) => {
+    const apiKey = 'your_sms_api_key'; // Replace with your SMS API key
+    const apiUrl = 'https://api.smsprovider.com/send'; // Replace with your SMS provider's API URL
+
+    try {
+        await axios.post(apiUrl, {
+            apiKey,
+            to: phoneNumber,
+            message: `Your verification code is: ${code}`
+        });
+    } catch (error) {
+        console.error('Error sending SMS:', error);
+        throw new Error('Failed to send SMS');
+    }
+};
+
+module.exports = sendSMS;

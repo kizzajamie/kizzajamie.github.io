@@ -1,0 +1,11 @@
+const express = require('express');
+const { deposit, withdraw } = require('../controllers/paymentController');
+const router = express.Router();
+
+// Deposit money
+router.post('/deposit', deposit);
+
+// Withdraw money
+router.post('/withdraw', withdraw);
+
+module.exports = router;

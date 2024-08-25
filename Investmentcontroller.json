@@ -1,0 +1,54 @@
+const User = require('../models/userModel');
+const Investment = require('../models/investmentModel');
+
+exports.invest = async (req, res) => {
+    const { userId, packageId } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        const investmentPackage = await Investment.findById(packageId);
+
+        if (user.wallet >= investmentPackage.price) {
+            user.wallet -= investmentPackage.price;
+            await user.save();
+
+            const investment = new Investment({
+                userId,
+                packageId,
+                startDate: new Date(),
+                endDate: new Date(new Date().setDate(new Date().getDate() + 4)),
+                amount: investmentPackage.price
+            });
+            await investment.save();
+
+            res.status(200).send({ message: 'Investment successful!', wallet: user.wallet });
+        } else {
+            res.status(400).send({ message: 'Insufficient funds!' });
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.checkInvestments = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const investments = await Investment.find({ userId });
+        const now = new Date();
+        
+        investments.forEach(async (inv) => {
+            if (inv.endDate <= now) {
+                const user = await User.findById(inv.userId);
+                user.wallet += inv.amount * 2; // Double the money
+                await user.save();
+                inv.status = 'completed';
+                await inv.save();
+            }
+        });
+
+        res.status(200).send(investments);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};

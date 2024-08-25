@@ -1,0 +1,42 @@
+const User = require('../models/userModel');
+const Investment = require('../models/investmentModel');
+
+exports.getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(200).send(users);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.getAllInvestments = async (req, res) => {
+    try {
+        const investments = await Investment.find();
+        res.status(200).send(investments);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.getUserById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.findById(id);
+        res.status(200).send(user);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.getInvestmentById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const investment = await Investment.findById(id);
+        res.status(200).send(investment);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};

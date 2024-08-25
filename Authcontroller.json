@@ -1,0 +1,67 @@
+const User = require('../models/userModel');
+const sendSMS = require('../utils/sendSMS');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+exports.signup = async (req, res) => {
+    const { phoneNumber, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const verificationCode = generateVerificationCode();
+    sendSMS(phoneNumber, verificationCode);
+
+    try {
+        const newUser = new User({
+            phoneNumber,
+            password: hashedPassword,
+            verificationCode, // Save the code for verification
+            isVerified: false
+        });
+        await newUser.save();
+        res.status(200).send({ message: 'Verification code sent!' });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.verifyCode = async (req, res) => {
+    const { phoneNumber, code } = req.body;
+
+    try {
+        const user = await User.findOne({ phoneNumber });
+        if (user && user.verificationCode === code) {
+            user.isVerified = true;
+            user.verificationCode = undefined; // Clear the code after verification
+            await user.save();
+            res.status(200).send({ message: 'User verified successfully!' });
+        } else {
+            res.status(400).send({ message: 'Invalid verification code!' });
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.login = async (req, res) => {
+    const { phoneNumber, password } = req.body;
+
+    try {
+        const user = await User.findOne({ phoneNumber });
+        if (user && user.isVerified) {
+            const match = await bcrypt.compare(password, user.password);
+            if (match) {
+                const token = jwt.sign({ id: user._id }, 'secret_key', { expiresIn: '1h' });
+                res.status(200).send({ token });
+            } else {
+                res.status(400).send({ message: 'Incorrect password!' });
+            }
+        } else {
+            res.status(400).send({ message: 'User not verified or does not exist!' });
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+function generateVerificationCode() {
+    return Math.floor(100000 + Math.random() * 900000).toString(); // Generates a 6-digit code
+}

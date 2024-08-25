@@ -1,0 +1,9 @@
+const mongoose = require('mongoose');
+
+const investmentPackageSchema = new mongoose.Schema({
+    name: { type: String, required: true, enum: ['Diamond', 'Gold', 'Silver', 'Platinum'] },
+    price: { type: Number, required: true },
+    img: { type: String, required: true }  // URL or path to the package image
+});
+
+module.exports = mongoose.model('InvestmentPackage', investmentPackageSchema);

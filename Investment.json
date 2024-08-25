@@ -1,0 +1,11 @@
+const express = require('express');
+const { invest, checkInvestments } = require('../controllers/investmentController');
+const router = express.Router();
+
+// Make an investment
+router.post('/invest', invest);
+
+// Check investments (e.g., for processing completed investments)
+router.get('/check/:userId', checkInvestments);
+
+module.exports = router;

@@ -1,0 +1,17 @@
+const express = require('express');
+const { getAllUsers, getAllInvestments, getUserById, getInvestmentById } = require('../controllers/adminController');
+const router = express.Router();
+
+// Get all users
+router.get('/users', getAllUsers);
+
+// Get all investments
+router.get('/investments', getAllInvestments);
+
+// Get a user by ID
+router.get('/user/:id', getUserById);
+
+// Get an investment by ID
+router.get('/investment/:id', getInvestmentById);
+
+module.exports = router;

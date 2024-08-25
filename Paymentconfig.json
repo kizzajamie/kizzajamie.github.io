@@ -1,0 +1,24 @@
+// Payment configuration for DPO, MTN, and Airtel Uganda
+
+const dpoConfig = {
+    apiKey: 'your_dpo_api_key',
+    apiUrl: 'https://api.dpo.com'
+};
+
+// MTN Payment Gateway configuration
+const mtnConfig = {
+    apiKey: 'your_mtn_api_key',
+    apiUrl: 'https://api.mtn.com'
+};
+
+// Airtel Payment Gateway configuration
+const airtelConfig = {
+    apiKey: 'your_airtel_api_key',
+    apiUrl: 'https://api.airtel.com'
+};
+
+module.exports = {
+    dpoConfig,
+    mtnConfig,
+    airtelConfig
+};

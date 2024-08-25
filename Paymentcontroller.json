@@ -1,0 +1,43 @@
+const User = require('../models/userModel');
+const Transaction = require('../models/transactionModel');
+const dpo = require('dpo-payment-gateway'); // Hypothetical DPO library
+
+exports.deposit = async (req, res) => {
+    const { userId, amount, paymentMethod } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        const response = await dpo.processPayment(amount, paymentMethod); // Process payment via DPO
+
+        if (response.success) {
+            user.wallet += amount;
+            await user.save();
+            const newTransaction = new Transaction({ userId, amount, type: 'deposit' });
+            await newTransaction.save();
+            res.status(200).send({ message: 'Deposit successful!', wallet: user.wallet });
+        } else {
+            res.status(400).send({ message: 'Payment failed!' });
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+exports.withdraw = async (req, res) => {
+    const { userId, amount } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        if (user.wallet >= amount) {
+            user.wallet -= amount;
+            await user.save();
+            const newTransaction = new Transaction({ userId, amount, type: 'withdrawal' });
+            await newTransaction.save();
+            res.status(200).send({ message: 'Withdrawal successful!', wallet: user.wallet });
+        } else {
+            res.status(400).send({ message: 'Insufficient funds!' });
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
